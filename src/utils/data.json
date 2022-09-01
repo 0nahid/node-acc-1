@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "John",
+        "gender": "male",
+        "contact": "+91-123-4567-89",
+        "address": "Bangalore",
+        "photoUrl": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    },
+    {
+        "id": 2,
+        "name": "John",
+        "gender": "male",
+        "contact": "+91-123-4567-89",
+        "address": "Bangalore",
+        "photoUrl": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    },
+    {
+        "id": 3,
+        "name": "John",
+        "gender": "male",
+        "contact": "+91-123-4567-89",
+        "address": "Bangalore",
+        "photoUrl": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    },
+    {
+        "id": 4,
+        "name": "John",
+        "gender": "male",
+        "contact": "+91-123-4567-89",
+        "address": "Bangalore",
+        "photoUrl": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    },
+    {
+        "id": 5,
+        "name": "John",
+        "gender": "male",
+        "contact": "+91-123-4567-89",
+        "address": "Bangalore",
+        "photoUrl": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    },
+    {
+        "id": 6,
+        "name": "John",
+        "gender": "male",
+        "contact": "+91-123-4567-89",
+        "address": "Bangalore",
+        "photoUrl": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    },
+    {
+        "id": 7,
+        "name": "John",
+        "gender": "male",
+        "contact": "+91-123-4567-89",
+        "address": "Bangalore",
+        "photoUrl": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    },
+    {
+        "id": 8,
+        "name": "John",
+        "gender": "male",
+        "contact": "+91-123-4567-89",
+        "address": "Bangalore",
+        "photoUrl": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    },
+    {
+        "id": 9,
+        "name": "John",
+        "gender": "male",
+        "contact": "+91-123-4567-89",
+        "address": "Bangalore",
+        "photoUrl": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    }
+]
