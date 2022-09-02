@@ -16,7 +16,19 @@ app.use(express_1.default.json());
 const users_route_1 = __importDefault(require("./routes/v1/users.route"));
 /* here will be the all the routes */
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.send(`
+  <h1>Welcome to the User API</h1>
+  <p>Here are the available routes</p>
+  <ul>
+    <li><a href="/">/home</a></li>
+    <li><a href="/user/random">/user/random</a></li>
+    <li><a href="/user/1">/user/:id</a></li>
+    <li><a href="/user/all">/user/all</a></li>
+    <li><a href="/user/save">/user/save</a></li>
+    <li><a href="/user/patch">/user/patch</a></li>
+    <li><a href="/user/patch/bulk-update">/user/patch/bulk-update</a></li>
+    <li><a href="/user/:id">/user/delete</a></li>
+  </ul>`);
 });
 /* Here is the User Routes */
 app.use("/user", users_route_1.default);
