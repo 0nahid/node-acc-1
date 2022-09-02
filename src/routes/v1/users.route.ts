@@ -24,6 +24,6 @@ router
   .delete(userRouter.deleteUser);
 
 // @route  bulk update user user/bulk-update
-router.patch("/bulk-update/:id", userRouter.bulkUpdate);
+router.patch("/bulk-update/", userRouter.bulkUpdate);
 
 export default router;

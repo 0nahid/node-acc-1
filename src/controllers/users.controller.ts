@@ -22,7 +22,7 @@ const welcomeMessage = (req: Request, res: Response) => {
       <li><a href="/user/all">/user/all</a></li>
       <li><a href="/user/save">/user/save</a></li>
       <li><a href="/user/patch">/user/patch</a></li>
-      <li><a href="/user/patch/bulk-update">/user/patch/bulk-update</a></li>
+      <li><a href="/user/bulk-update">/user/bulk-update</a></li>
       <li><a href="/user/:id">/user/delete</a></li>
     </ol> 
     </div>
