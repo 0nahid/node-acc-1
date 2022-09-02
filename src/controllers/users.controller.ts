@@ -82,7 +82,7 @@ const testData = [
       "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
   },
 ];
-const getAllTest = (req: Request, res: Response) => {
+const getRandomUser = (req: Request, res: Response) => {
   // res.json(testData);
   // suffle the array and send only one element as response
   const shuffled = testData.sort(() => 0.5 - Math.random());
@@ -98,4 +98,4 @@ const createTest = (req: Request, res: Response) => {
   });
 };
 
-export const testRouter = { getAllTest, createTest };
+export const userRouter = { getRandomUser, createTest };

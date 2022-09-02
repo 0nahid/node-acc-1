@@ -3,7 +3,9 @@ import { testRouter } from "../../controllers/test";
 
 const router: Router = Router();
 
-// @route  get api/v1/test
-router.route("/").get(testRouter.getAllTest).post(testRouter.createTest);
+// @route  get user/random
+router.route("/random").get(testRouter.getAllTest);
+// @route create an user
+router.post("/create", testRouter.createTest);
 
 export default router;

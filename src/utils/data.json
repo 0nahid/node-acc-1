@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "John",
+        "name": "John 1",
         "gender": "male",
         "contact": "+91-123-4567-89",
         "address": "Bangalore",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "name": "John",
+        "name": "John 2",
         "gender": "male",
         "contact": "+91-123-4567-89",
         "address": "Bangalore",
@@ -17,7 +17,7 @@
     },
     {
         "id": 3,
-        "name": "John",
+        "name": "John 3",
         "gender": "male",
         "contact": "+91-123-4567-89",
         "address": "Bangalore",
@@ -25,7 +25,7 @@
     },
     {
         "id": 4,
-        "name": "John",
+        "name": "John 4",
         "gender": "male",
         "contact": "+91-123-4567-89",
         "address": "Bangalore",
@@ -33,7 +33,7 @@
     },
     {
         "id": 5,
-        "name": "John",
+        "name": "John 5",
         "gender": "male",
         "contact": "+91-123-4567-89",
         "address": "Bangalore",
@@ -41,7 +41,7 @@
     },
     {
         "id": 6,
-        "name": "John",
+        "name": "John 6",
         "gender": "male",
         "contact": "+91-123-4567-89",
         "address": "Bangalore",
@@ -49,7 +49,7 @@
     },
     {
         "id": 7,
-        "name": "John",
+        "name": "John 7",
         "gender": "male",
         "contact": "+91-123-4567-89",
         "address": "Bangalore",
@@ -57,7 +57,7 @@
     },
     {
         "id": 8,
-        "name": "John",
+        "name": "John 8",
         "gender": "male",
         "contact": "+91-123-4567-89",
         "address": "Bangalore",
@@ -65,7 +65,7 @@
     },
     {
         "id": 9,
-        "name": "John",
+        "name": "John 9",
         "gender": "male",
         "contact": "+91-123-4567-89",
         "address": "Bangalore",
