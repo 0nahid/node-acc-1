@@ -83,7 +83,7 @@ const updateUser = (req: Request, res: Response) => {
   //   console.log(req.body);
   const updatedUser = { ...user, ...req.body };
   //   console.log(updatedUser);
-  const index = testData.indexOf(user as User);
+  const index = testData.indexOf(user as User); // type assertion
   testData.splice(index, 1, updatedUser);
   res.json({
     message: "User updated successfully",
