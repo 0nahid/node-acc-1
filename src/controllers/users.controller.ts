@@ -1,88 +1,5 @@
 import { Request, Response } from "express";
-const testData = [
-  {
-    id: 1,
-    name: "John 1",
-    gender: "male",
-    contact: "+91-123-4567-89",
-    address: "Bangalore",
-    photoUrl:
-      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-  },
-  {
-    id: 2,
-    name: "John 2",
-    gender: "male",
-    contact: "+91-123-4567-89",
-    address: "Bangalore",
-    photoUrl:
-      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-  },
-  {
-    id: 3,
-    name: "John 3",
-    gender: "male",
-    contact: "+91-123-4567-89",
-    address: "Bangalore",
-    photoUrl:
-      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-  },
-  {
-    id: 4,
-    name: "John 4",
-    gender: "male",
-    contact: "+91-123-4567-89",
-    address: "Bangalore",
-    photoUrl:
-      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-  },
-  {
-    id: 5,
-    name: "John 5",
-    gender: "male",
-    contact: "+91-123-4567-89",
-    address: "Bangalore",
-    photoUrl:
-      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-  },
-  {
-    id: 6,
-    name: "John 6",
-    gender: "male",
-    contact: "+91-123-4567-89",
-    address: "Bangalore",
-    photoUrl:
-      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-  },
-  {
-    id: 7,
-    name: "John 7",
-    gender: "male",
-    contact: "+91-123-4567-89",
-    address: "Bangalore",
-    photoUrl:
-      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-  },
-  {
-    id: 8,
-    name: "John 8",
-    gender: "male",
-    contact: "+91-123-4567-89",
-    address: "Bangalore",
-    photoUrl:
-      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-  },
-  {
-    id: 9,
-    name: "John 9",
-    gender: "male",
-    contact: "+91-123-4567-89",
-    address: "Bangalore",
-    photoUrl:
-      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-  },
-];
-
+import testData from "../utils/data.json";
 const welcomeMessage = (req: Request, res: Response) => {
   res.send(`
     <h1>Welcome to the User API</h1>
@@ -118,6 +35,14 @@ const createUser = (req: Request, res: Response) => {
   //   create dynamic id
   const id = testData.length + 1;
   const user = { id, ...req.body };
+  //  if any of the required field is missing then send 400 status code
+  if (!user || !user.name || !user.gender || !user.contact || !user.address) {
+    res.status(400).send({
+      message: "Bad Request",
+      status: 400,
+    });
+  }
+
   //   console.log(user);
   testData.push(user);
   res.json(testData);
