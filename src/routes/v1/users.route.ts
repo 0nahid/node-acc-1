@@ -3,7 +3,13 @@ import { userRouter } from "../../controllers/users.controller";
 
 const router: Router = Router();
 
-// @route  get api/v1/test
-router.route("/").get(userRouter.getRandomUser).post(userRouter.createTest);
+// @route  get random user user/random
+router.route("/random").get(userRouter.getRandomUser);
+
+// @route  get all users user/all
+router.route("/all").get(userRouter.getAllUsers);
+
+// @route  create user user/create
+router.post("/create", userRouter.createTest);
 
 export default router;

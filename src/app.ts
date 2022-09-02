@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 /* here will be all the imports routes */
-import { default as testRoute, default as userRouter } from "./routes/v1/test";
+import { default as userRouter } from "./routes/v1/users.route";
 
 /* here will be the all the routes */
 app.get("/", (req: Request, res: Response) => {
@@ -15,7 +15,6 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 /* Here is the User Routes */
-app.use("/api/v1/test", testRoute);
 app.use("/user", userRouter);
 
 // 404 response
