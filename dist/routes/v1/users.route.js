@@ -19,5 +19,5 @@ router
     .patch(users_controller_1.userRouter.updateUser)
     .delete(users_controller_1.userRouter.deleteUser);
 // @route  bulk update user user/bulk-update
-router.patch("/bulk-update/:id", users_controller_1.userRouter.bulkUpdate);
+router.patch("/bulk-update/", users_controller_1.userRouter.bulkUpdate);
 exports.default = router;
