@@ -83,6 +83,23 @@ const testData = [
   },
 ];
 
+const welcomeMessage = (req: Request, res: Response) => {
+  res.send(`
+    <h1>Welcome to the User API</h1>
+    <p>Here are the available routes</p>
+    <ul>
+        <li><a href="/user">/user</a></li>
+        <li><a href="/user/random">/user/random</a></li>
+        <li><a href="/user/1">/user/:id</a></li>
+        <li><a href="/user/all">/user/all</a></li>
+        <li><a href="/user/save">/user/save</a></li>
+        <li><a href="/user/patch">/user/patch</a></li>
+        <li><a href="/user/patch/bulk-update">/user/patch/bulk-update</a></li>
+        <li><a href="/user/:id">/user/delete</a></li>
+    </ul>
+    `);
+};
+
 const getAllUsers = (req: Request, res: Response) => {
   res.json(testData);
 };
@@ -120,6 +137,7 @@ const getUserById = (req: Request, res: Response) => {
 };
 
 export const userRouter = {
+  welcomeMessage,
   getRandomUser,
   getAllUsers,
   createUser,

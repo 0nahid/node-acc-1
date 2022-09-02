@@ -3,6 +3,10 @@ import { userRouter } from "../../controllers/users.controller";
 
 const router: Router = Router();
 
+// here will be all the routes
+//  @route get / a welcome message
+router.get("/", userRouter.welcomeMessage);
+
 // @route  get random user user/random
 router.route("/random").get(userRouter.getRandomUser);
 
