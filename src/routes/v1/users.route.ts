@@ -17,9 +17,13 @@ router.route("/all").get(userRouter.getAllUsers);
 router.post("/save", userRouter.createUser);
 
 // @route  get user by id user/:id
-router.route("/:id").get(userRouter.getUserById)
-.patch(userRouter.updateUser)
-.delete(userRouter.deleteUser);
+router
+  .route("/:id")
+  .get(userRouter.getUserById)
+  .patch(userRouter.updateUser)
+  .delete(userRouter.deleteUser);
 
+// @route  bulk update user user/bulk-update
+router.patch("/bulk-update/:id", userRouter.bulkUpdate);
 
 export default router;

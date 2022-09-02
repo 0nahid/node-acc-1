@@ -1,6 +1,7 @@
 import cors from "cors";
 import "dotenv/config";
 import express, { Application, Request, Response } from "express";
+
 const app: Application = express();
 /* middleware  */
 app.use(cors());
@@ -11,7 +12,7 @@ import { default as userRouter } from "./routes/v1/users.route";
 
 /* here will be the all the routes */
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World");
+  res.sendFile(__dirname + "/index.html");
 });
 
 /* Here is the User Routes */

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import testData from "../utils/data.json";
+
 type User = {
   id: number;
   name: string;
@@ -8,21 +9,22 @@ type User = {
   address: string;
   photoUrl: string;
 };
+
 const welcomeMessage = (req: Request, res: Response) => {
-  res.send(`
+  res.send(
+    `
     <h1>Welcome to the User API</h1>
-    <p>Here are the available routes</p>
-    <ul>
-        <li><a href="/user">/user</a></li>
-        <li><a href="/user/random">/user/random</a></li>
-        <li><a href="/user/1">/user/:id</a></li>
-        <li><a href="/user/all">/user/all</a></li>
-        <li><a href="/user/save">/user/save</a></li>
-        <li><a href="/user/patch">/user/patch</a></li>
-        <li><a href="/user/patch/bulk-update">/user/patch/bulk-update</a></li>
-        <li><a href="/user/:id">/user/delete</a></li>
-    </ul>
-    `);
+   <ul>
+      <li><a href="/">/home</a></li>
+      <li><a href="/user/random">/user/random</a></li>
+      <li><a href="/user/1">/user/:id</a></li>
+      <li><a href="/user/all">/user/all</a></li>
+      <li><a href="/user/save">/user/save</a></li>
+      <li><a href="/user/patch">/user/patch</a></li>
+      <li><a href="/user/patch/bulk-update">/user/patch/bulk-update</a></li>
+      <li><a href="/user/:id">/user/delete</a></li>
+    </ul>`
+  );
 };
 
 const getAllUsers = (req: Request, res: Response) => {
@@ -111,6 +113,22 @@ const deleteUser = (req: Request, res: Response) => {
   });
 };
 
+const bulkUpdate = (req: Request, res: Response) => {
+  const { users } = req.body;
+  console.log(users);
+  //   console.log(testData);
+  const updatedUsers = testData.map((user) => {
+    const updatedUser = users.find((u: User) => u.id === user.id); // type assertion
+    return updatedUser ? { ...user, ...updatedUser } : user;
+  });
+  //   console.log(updatedUsers);
+  res.json({
+    message: "Users updated successfully",
+    status: 200,
+    data: updatedUsers,
+  });
+};
+
 export const userRouter = {
   welcomeMessage,
   getRandomUser,
@@ -119,4 +137,5 @@ export const userRouter = {
   getUserById,
   updateUser,
   deleteUser,
+  bulkUpdate,
 };
