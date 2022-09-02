@@ -106,4 +106,22 @@ const createUser = (req: Request, res: Response) => {
   res.json(testData);
 };
 
-export const userRouter = { getRandomUser, getAllUsers, createUser };
+const getUserById = (req: Request, res: Response) => {
+  const id = req.params.id;
+  const user = testData.find((user) => user.id == Number(id));
+  // if user not found then send 404 status code
+  if (!user) {
+    res.status(404).send({
+      message: "User not found",
+      status: 404,
+    });
+  }
+  res.json(user);
+};
+
+export const userRouter = {
+  getRandomUser,
+  getAllUsers,
+  createUser,
+  getUserById,
+};
