@@ -19,6 +19,7 @@ router.post("/save", userRouter.createUser);
 // @route  get user by id user/:id
 router.route("/:id").get(userRouter.getUserById)
 .patch(userRouter.updateUser)
+.delete(userRouter.deleteUser);
 
 
 export default router;

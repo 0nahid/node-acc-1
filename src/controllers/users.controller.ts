@@ -92,6 +92,25 @@ const updateUser = (req: Request, res: Response) => {
   });
 };
 
+const deleteUser = (req: Request, res: Response) => {
+  const id = req.params.id;
+  const user = testData.find((user) => user.id == Number(id));
+  // if user not found then send 404 status code
+  if (!user) {
+    res.status(404).send({
+      message: "User not found",
+      status: 404,
+    });
+  }
+  const index = testData.indexOf(user as User); // type assertion
+  testData.splice(index, 1);
+  res.json({
+    message: "User deleted successfully",
+    status: 200,
+    data: testData,
+  });
+};
+
 export const userRouter = {
   welcomeMessage,
   getRandomUser,
@@ -99,4 +118,5 @@ export const userRouter = {
   createUser,
   getUserById,
   updateUser,
+  deleteUser,
 };
