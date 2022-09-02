@@ -12,9 +12,10 @@ type User = {
 
 const welcomeMessage = (req: Request, res: Response) => {
   res.send(
-    `
+    ` <div style="color:red;font-size:25px; ">
     <h1>Welcome to the User API</h1>
-   <ul>
+    <p>Here are the available routes</p>
+    <ol>
       <li><a href="/">/home</a></li>
       <li><a href="/user/random">/user/random</a></li>
       <li><a href="/user/1">/user/:id</a></li>
@@ -23,7 +24,9 @@ const welcomeMessage = (req: Request, res: Response) => {
       <li><a href="/user/patch">/user/patch</a></li>
       <li><a href="/user/patch/bulk-update">/user/patch/bulk-update</a></li>
       <li><a href="/user/:id">/user/delete</a></li>
-    </ul>`
+    </ol> 
+    </div>
+    `
   );
 };
 
