@@ -17,7 +17,8 @@ router.route("/all").get(userRouter.getAllUsers);
 router.post("/save", userRouter.createUser);
 
 // @route  get user by id user/:id
-router.route("/:id").get(userRouter.getUserById);
+router.route("/:id").get(userRouter.getUserById)
+.patch(userRouter.updateUser)
 
 
 export default router;

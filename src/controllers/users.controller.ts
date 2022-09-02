@@ -1,5 +1,13 @@
 import { Request, Response } from "express";
 import testData from "../utils/data.json";
+type User = {
+  id: number;
+  name: string;
+  gender: string;
+  contact: string;
+  address: string;
+  photoUrl: string;
+};
 const welcomeMessage = (req: Request, res: Response) => {
   res.send(`
     <h1>Welcome to the User API</h1>
@@ -61,10 +69,34 @@ const getUserById = (req: Request, res: Response) => {
   res.json(user);
 };
 
+const updateUser = (req: Request, res: Response) => {
+  const id = req.params.id;
+  const user = testData.find((user) => user.id == Number(id));
+  // if user not found then send 404 status code
+  if (!user) {
+    res.status(404).send({
+      message: "User not found",
+      status: 404,
+    });
+  }
+  //   console.log(user);
+  //   console.log(req.body);
+  const updatedUser = { ...user, ...req.body };
+  //   console.log(updatedUser);
+  const index = testData.indexOf(user as User);
+  testData.splice(index, 1, updatedUser);
+  res.json({
+    message: "User updated successfully",
+    status: 200,
+    data: updatedUser,
+  });
+};
+
 export const userRouter = {
   welcomeMessage,
   getRandomUser,
   getAllUsers,
   createUser,
   getUserById,
+  updateUser,
 };
