@@ -9,7 +9,7 @@ router.route("/random").get(userRouter.getRandomUser);
 // @route  get all users user/all
 router.route("/all").get(userRouter.getAllUsers);
 
-// @route  create user user/create
-router.post("/create", userRouter.createTest);
+// @route  create user user/save
+router.post("/save", userRouter.createUser);
 
 export default router;

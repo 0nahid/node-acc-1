@@ -84,22 +84,26 @@ const testData = [
 ];
 
 const getAllUsers = (req: Request, res: Response) => {
-  res.send(testData);
+  res.json(testData);
 };
 
 const getRandomUser = (req: Request, res: Response) => {
   // suffle the array and send only one element as response
   const shuffled = testData.sort(() => 0.5 - Math.random());
   let selected = shuffled.slice(0, 1);
-  res.send(selected);
+  res.json(selected);
 };
 
-const createTest = (req: Request, res: Response) => {
-  res.send({
-    message: "createTest",
-    status: 200,
-    body: req.body,
-  });
+const createUser = (req: Request, res: Response) => {
+  //   console.log(req.body);
+  //   testData.push(req.body);
+  //   res.json(testData);
+  //   create dynamic id
+  const id = testData.length + 1;
+  const user = { id, ...req.body };
+  //   console.log(user);
+  testData.push(user);
+  res.json(testData);
 };
 
-export const userRouter = { getRandomUser, getAllUsers, createTest };
+export const userRouter = { getRandomUser, getAllUsers, createUser };
