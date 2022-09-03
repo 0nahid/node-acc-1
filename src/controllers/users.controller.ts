@@ -90,6 +90,8 @@ const updateUser = (req: Request, res: Response) => {
   //   console.log(updatedUser);
   const index = testData.indexOf(user as User); // type assertion
   testData.splice(index, 1, updatedUser);
+  //  update the file system
+  fs.writeFileSync("./src/utils/data.json", JSON.stringify(testData));
   res.json({
     message: "User updated successfully",
     status: 200,
@@ -109,6 +111,8 @@ const deleteUser = (req: Request, res: Response) => {
   }
   const index = testData.indexOf(user as User); // type assertion
   testData.splice(index, 1);
+  // update the file system
+  fs.writeFileSync("./src/utils/data.json", JSON.stringify(testData));
   res.json({
     message: "User deleted successfully",
     status: 200,
@@ -125,6 +129,8 @@ const bulkUpdate = (req: Request, res: Response) => {
     return updatedUser ? { ...user, ...updatedUser } : user;
   });
   //   console.log(updatedUsers);
+  // update the file system
+  fs.writeFileSync("./src/utils/data.json", JSON.stringify(updatedUsers));
   res.json({
     message: "Users updated successfully",
     status: 200,
