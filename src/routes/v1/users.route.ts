@@ -14,7 +14,7 @@ router.route("/random").get(userRouter.getRandomUser);
 router.route("/all").get(userRouter.getAllUsers);
 
 // @route  create user user/save
-router.post("/save", userRouter.createUser);
+router.post("/save", userRouter.saveUser);
 
 // @route  get user by id user/:id
 router

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
+import fs from "fs";
 import testData from "../utils/data.json";
-
 type User = {
   id: number;
   name: string;
@@ -41,11 +41,7 @@ const getRandomUser = (req: Request, res: Response) => {
   res.json(selected);
 };
 
-const createUser = (req: Request, res: Response) => {
-  //   console.log(req.body);
-  //   testData.push(req.body);
-  //   res.json(testData);
-  //   create dynamic id
+const saveUser = (req: Request, res: Response) => {
   const id = testData.length + 1;
   const user = { id, ...req.body };
   //  if any of the required field is missing then send 400 status code
@@ -55,10 +51,14 @@ const createUser = (req: Request, res: Response) => {
       status: 400,
     });
   }
-
-  //   console.log(user);
+  // push with file system to save data
   testData.push(user);
-  res.json(testData);
+  fs.writeFileSync("./src/utils/data.json", JSON.stringify(testData));
+  res.json({
+    message: "User saved successfully",
+    status: 200,
+    data: user,
+  });
 };
 
 const getUserById = (req: Request, res: Response) => {
@@ -136,7 +136,7 @@ export const userRouter = {
   welcomeMessage,
   getRandomUser,
   getAllUsers,
-  createUser,
+  saveUser,
   getUserById,
   updateUser,
   deleteUser,

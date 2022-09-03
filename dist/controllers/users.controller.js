@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRouter = void 0;
+const fs_1 = __importDefault(require("fs"));
 const data_json_1 = __importDefault(require("../utils/data.json"));
 const welcomeMessage = (req, res) => {
     res.send(` <div style="color:red;font-size:25px; ">
@@ -31,11 +32,7 @@ const getRandomUser = (req, res) => {
     let selected = shuffled.slice(0, 1);
     res.json(selected);
 };
-const createUser = (req, res) => {
-    //   console.log(req.body);
-    //   testData.push(req.body);
-    //   res.json(testData);
-    //   create dynamic id
+const saveUser = (req, res) => {
     const id = data_json_1.default.length + 1;
     const user = Object.assign({ id }, req.body);
     //  if any of the required field is missing then send 400 status code
@@ -45,9 +42,14 @@ const createUser = (req, res) => {
             status: 400,
         });
     }
-    //   console.log(user);
+    // push with file system to save data
     data_json_1.default.push(user);
-    res.json(data_json_1.default);
+    fs_1.default.writeFileSync("./src/utils/data.json", JSON.stringify(data_json_1.default));
+    res.json({
+        message: "User saved successfully",
+        status: 200,
+        data: user,
+    });
 };
 const getUserById = (req, res) => {
     const id = req.params.id;
@@ -120,7 +122,7 @@ exports.userRouter = {
     welcomeMessage,
     getRandomUser,
     getAllUsers,
-    createUser,
+    saveUser,
     getUserById,
     updateUser,
     deleteUser,
